@@ -8,11 +8,16 @@
 
 import SwiftUI
 
-public struct GHViewController: View {
+public struct GHDatePicker: View {
     
     @Binding var isPresented: Bool
     
     @ObservedObject var ghManager: GHManager
+    
+    public init(isPresented: Binding<Bool>, ghManager: GHManager) {
+            self._isPresented = isPresented
+            self.ghManager = ghManager
+    }
     
     public var body: some View {
         Group {
@@ -44,8 +49,8 @@ public struct GHViewController: View {
 struct RKViewController_Previews : PreviewProvider {
     static var previews: some View {
         Group {
-            GHViewController(isPresented: .constant(false), ghManager: GHManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*365), mode: 0))
-            GHViewController(isPresented: .constant(false), ghManager: GHManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*32), mode: 0))
+            GHDatePicker(isPresented: .constant(false), ghManager: GHManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*365), mode: 0))
+            GHDatePicker(isPresented: .constant(false), ghManager: GHManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*32), mode: 0))
                 .environment(\.colorScheme, .dark)
                 .environment(\.layoutDirection, .rightToLeft)
         }
