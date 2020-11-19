@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GHCalendar"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "Calendar Swift UI, supports range and multiple selection"
   s.homepage     = "https://github.com/cyber-gh/GHCalendar"
   s.source       = { :git => "https://github.com/cyber-gh/GHCalendar.git", :tag => s.version }

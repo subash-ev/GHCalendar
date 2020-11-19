@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-class GHManager : ObservableObject {
+public class GHManager : ObservableObject {
 
     @Published var calendar = Calendar.current
     @Published var minimumDate: Date = Date()
@@ -21,9 +21,9 @@ class GHManager : ObservableObject {
     
     @Published var mode: Int = 0
     
-    var colors = RKColorSettings()
+    var colors = GHColorSettings()
   
-    init(calendar: Calendar, minimumDate: Date, maximumDate: Date, selectedDates: [Date] = [Date](), mode: Int) {
+    public init(calendar: Calendar, minimumDate: Date, maximumDate: Date, selectedDates: [Date] = [Date](), mode: Int) {
         self.calendar = calendar
         self.minimumDate = minimumDate
         self.maximumDate = maximumDate

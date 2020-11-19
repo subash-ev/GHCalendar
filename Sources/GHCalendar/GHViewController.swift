@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct GHViewController: View {
+public struct GHViewController: View {
     
     @Binding var isPresented: Bool
     
     @ObservedObject var ghManager: GHManager
     
-    var body: some View {
+    public var body: some View {
         Group {
             GHWeekdayHeader(ghManager: self.ghManager)
             Divider()
