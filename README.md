@@ -45,20 +45,20 @@ Use mode 3 for selecting a number of dates.
 ## Full exmaple 
     struct TransfersFilterView: View {
     
-    @ObservedObject var calendarManager: GHManager = GHManager(calendar: Calendar.current, minimumDate: Date().addingTimeInterval(-2*60*60*24*365), maximumDate: Date().addingTimeInterval(60*60*24*365), mode: 1)
-    
- 
-    
-    var body: some View {
-        VStack {
-            Button(action: {
-              self.isShowingDatePicker = true
-            }) {
-                Text("Show Date picker")
-            }
-        }.padding()
-        .sheet(isPresented: $isShowingDatePicker, content: {
-            GHDatePicker(isPresented: $isShowingDatePicker, ghManager: calendarManager)
-        })
+        @ObservedObject var calendarManager: GHManager = GHManager(calendar: Calendar.current, minimumDate: Date().addingTimeInterval(-2*60*60*24*365), maximumDate: Date().addingTimeInterval(60*60*24*365), mode: 1)
+
+
+
+        var body: some View {
+            VStack {
+                Button(action: {
+                  self.isShowingDatePicker = true
+                }) {
+                    Text("Show Date picker")
+                }
+            }.padding()
+            .sheet(isPresented: $isShowingDatePicker, content: {
+                GHDatePicker(isPresented: $isShowingDatePicker, ghManager: calendarManager)
+            })
+        }
     }
-}
