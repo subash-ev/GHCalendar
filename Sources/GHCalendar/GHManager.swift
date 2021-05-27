@@ -10,14 +10,14 @@ import SwiftUI
 
 public class GHManager : ObservableObject {
 
-    @Published var calendar = Calendar.current
-    @Published var minimumDate: Date = Date()
-    @Published var maximumDate: Date = Date()
-    @Published var disabledDates: [Date] = [Date]()
-    @Published var selectedDates: [Date] = [Date]()
-    @Published var selectedDate: Date! = nil
-    @Published var startDate: Date! = nil
-    @Published var endDate: Date! = nil
+    @Published public var calendar = Calendar.current
+    @Published public var minimumDate: Date = Date()
+    @Published public var maximumDate: Date = Date()
+    @Published public var disabledDates: [Date] = [Date]()
+    @Published public var selectedDates: [Date] = [Date]()
+    @Published public var selectedDate: Date! = nil
+    @Published public var startDate: Date! = nil
+    @Published public var endDate: Date! = nil
     
     @Published var mode: Int = 0
     
