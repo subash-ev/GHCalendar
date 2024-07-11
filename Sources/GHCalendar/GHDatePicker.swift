@@ -20,16 +20,41 @@ public struct GHDatePicker: View {
     }
     
     public var body: some View {
-        Group {
-            GHWeekdayHeader(ghManager: self.ghManager)
-            Divider()
-            List {
-                ForEach(0..<numberOfMonths()) { index in
-                    GHMonth(isPresented: self.$isPresented, ghManager: self.ghManager, monthOffset: index)
+    
+        if #available(iOS 14.0, *) {
+            ScrollViewReader { proxy in
+                Group {
+                    GHWeekdayHeader(ghManager: self.ghManager)
+                    Divider()
+                    List {
+                        ForEach(0..<numberOfMonths()) { index in
+                            GHMonth(isPresented: self.$isPresented, ghManager: self.ghManager, monthOffset: index)
+                                .id(index)
+                        }
+                        Divider()
+                    }
+                }.onAppear {
+                    debugPrint("Appeared.. gh date picker")
+                    proxy.scrollTo(numberOfMonths()-1, anchor: .bottom)
                 }
-                Divider()
+                
             }
+        } else {
+            
+            Group {
+                GHWeekdayHeader(ghManager: self.ghManager)
+                Divider()
+                List {
+                    ForEach(0..<numberOfMonths()) { index in
+                        GHMonth(isPresented: self.$isPresented, ghManager: self.ghManager, monthOffset: index)
+                    }
+                    Divider()
+                }
+            }
+            
+            // Fallback on earlier versions
         }
+        
     }
     
     func numberOfMonths() -> Int {

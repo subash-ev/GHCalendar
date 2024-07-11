@@ -7,19 +7,12 @@ let package = Package(
     name: "GHCalendar",
     platforms: [
             .macOS(.v10_15),
-            .iOS(.v13),
-            .tvOS(.v13),
-            .watchOS(.v6)
+            .iOS(.v14),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "GHCalendar-static",
-            type: .static,
-            targets: ["GHCalendar"]),
-        .library(
-            name: "GHCalendar-dynamic",
-            type: .dynamic,
+            name: "GHCalendar",
             targets: ["GHCalendar"])
     ],
     dependencies: [
